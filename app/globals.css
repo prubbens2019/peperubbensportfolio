@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  /* Warm, woody palette — burnt orange, sun-bleached sand, deep walnut. */
+  --raw-cream: #f7efe1;
+  --raw-cream-soft: #fcf8f0;
+  --raw-sand: #ead9bd;
+  --raw-sand-dark: #d8bd90;
+  --raw-wood: #7a4a2b;
+  --raw-wood-dark: #4a2e1c;
+  --raw-terracotta: #c1622e;
+  --raw-terracotta-dark: #9b4a22;
+  --raw-ink: #2e2016;
+}
+
+@theme inline {
+  --color-cream: var(--raw-cream);
+  --color-cream-soft: var(--raw-cream-soft);
+  --color-sand: var(--raw-sand);
+  --color-sand-dark: var(--raw-sand-dark);
+  --color-wood: var(--raw-wood);
+  --color-wood-dark: var(--raw-wood-dark);
+  --color-terracotta: var(--raw-terracotta);
+  --color-terracotta-dark: var(--raw-terracotta-dark);
+  --color-ink: var(--raw-ink);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 15% -10%, rgba(193, 98, 46, 0.10), transparent 55%),
+    radial-gradient(ellipse 100% 70% at 100% 0%, rgba(122, 74, 43, 0.08), transparent 60%);
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), Georgia, serif;
+  color: var(--color-wood-dark);
+  letter-spacing: -0.01em;
+}
+
+/* Subtle paper-grain texture, used behind hero/profile sections. */
+.texture-grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.texture-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}

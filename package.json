@@ -1,0 +1,28 @@
+{
+  "name": "peperubbens-nl",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "predev": "node scripts/sync-content-images.mjs",
+    "dev": "next dev",
+    "prebuild": "node scripts/sync-content-images.mjs",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.116.0",
+    "next": "16.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-markdown": "^10.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

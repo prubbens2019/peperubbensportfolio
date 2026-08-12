@@ -1,0 +1,10 @@
+{
+  "slug": "digitale-producten",
+  "title": "Digitale producten",
+  "title_en": "Digital products",
+  "subtitle": "Apps, tools en software die ik heb gebouwd",
+  "subtitle_en": "Apps, tools and software I've built",
+  "cover": "cover.svg",
+  "order": 4,
+  "translationHash": ""
+}
