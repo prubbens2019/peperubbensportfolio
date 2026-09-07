@@ -4,8 +4,8 @@ import { LocaleProvider } from "@/lib/locale-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Pep Rubbens",
-  description: "Portfolio van Pep Rubbens",
+  title: "Pepe Rubbens",
+  description: "Portfolio van Pepe Rubbens",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

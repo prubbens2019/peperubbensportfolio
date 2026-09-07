@@ -8,10 +8,10 @@ export function Header({ linkHome = true }: { linkHome?: boolean }) {
       <Container className="flex items-center justify-between">
         {linkHome ? (
           <Link href="/" className="font-display text-xl font-semibold text-wood-dark">
-            Pep Rubbens
+            Pepe Rubbens
           </Link>
         ) : (
-          <span className="font-display text-xl font-semibold text-wood-dark">Pep Rubbens</span>
+          <span className="font-display text-xl font-semibold text-wood-dark">Pepe Rubbens</span>
         )}
         <LanguageToggle />
       </Container>
