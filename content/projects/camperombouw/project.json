@@ -1,0 +1,19 @@
+{
+  "slug": "camperombouw",
+  "title": "Camperombouw",
+  "title_en": "Camper Conversion",
+  "subtitle": "Een kale Renault Master, volledig zelf dichtgetimmerd",
+  "subtitle_en": "A bare Renault Master, fully built out by hand",
+  "category": "fysieke-maakprojecten",
+  "visible": true,
+  "order": 1,
+  "role": "Ontwerp & bouw",
+  "year": "2023-2024",
+  "tools": [
+    "Houtbewerking",
+    "Isolatie",
+    "Elektra"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}

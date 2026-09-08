@@ -1,0 +1,17 @@
+{
+  "slug": "kwiek-mobility",
+  "title": "kwiek. mobility",
+  "title_en": "kwiek. mobility",
+  "subtitle": "Scootmobielen delen, uitgewerkt voor een aanbesteding van Gemeente Den Haag",
+  "subtitle_en": "Sharing mobility scooters, developed for a Municipality of The Hague tender",
+  "category": "productontwikkeling-onderzoek",
+  "visible": true,
+  "order": 3,
+  "role": "Projectleider",
+  "year": "2022",
+  "tools": [
+    "Conceptontwikkeling"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}

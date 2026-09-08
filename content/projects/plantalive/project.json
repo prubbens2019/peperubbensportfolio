@@ -1,0 +1,17 @@
+{
+  "slug": "plantalive",
+  "title": "Plantalive",
+  "title_en": "Plantalive",
+  "subtitle": "",
+  "subtitle_en": "",
+  "category": "digitale-producten",
+  "visible": true,
+  "order": 3,
+  "role": "Zelfstandig project",
+  "year": "",
+  "tools": [
+    "Webdevelopment"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}

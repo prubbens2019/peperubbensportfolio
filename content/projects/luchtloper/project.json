@@ -1,0 +1,18 @@
+{
+  "slug": "luchtloper",
+  "title": "Luchtloper",
+  "title_en": "Luchtloper",
+  "subtitle": "Een prijsvraag voor de nieuwe Rotterdamse Luchtsingel",
+  "subtitle_en": "A design competition for Rotterdam's new Luchtsingel",
+  "category": "productontwikkeling-onderzoek",
+  "visible": true,
+  "order": 4,
+  "role": "Ontwerp",
+  "year": "",
+  "tools": [
+    "3D-printen",
+    "Staalconstructie"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}

@@ -1,0 +1,5 @@
+As Online Customer Experience Intern at HEMA I researched how customers search and ultimately purchase, using A/B testing as the main method. I tested three variants of the site's search function, and the result is something I am still proud of: the advice that came out of it was almost entirely adopted. The way search on the HEMA website looks today closely matches what I proposed at the time.
+
+What surprised me most during this research was how differently customers behaved in practice compared to what everyone internally expected. At a brand like HEMA, even among people who have worked there for years, all kinds of assumptions exist about how customers search and choose. As soon as you actually test them, reality turns out to be a little different, sometimes completely different.
+
+I mainly worked with the UX/design team, where the test results kept feeding back into concrete design decisions. It was a good first experience in how research and design feed each other in practice, not as two separate steps in sequence, but as an ongoing conversation where data steers a design and a new design in turn asks for new data.

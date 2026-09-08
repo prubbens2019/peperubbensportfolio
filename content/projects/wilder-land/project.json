@@ -1,0 +1,18 @@
+{
+  "slug": "wilder-land",
+  "title": "Wilder Land",
+  "title_en": "Wilder Land",
+  "subtitle": "Voedsel maken van onkruid, en een website die dat verhaal moest overtuigen",
+  "subtitle_en": "Making food from weeds, and a website that had to sell that story",
+  "category": "productontwikkeling-onderzoek",
+  "visible": true,
+  "order": 1,
+  "role": "Designer",
+  "year": "2023-2024",
+  "tools": [
+    "Productontwikkeling",
+    "Webdesign"
+  ],
+  "externalLink": "https://wilder-land.com/",
+  "translationHash": ""
+}

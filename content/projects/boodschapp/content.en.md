@@ -1,0 +1,1 @@
+Boodschapp is a small webapp that lets me and my girlfriend keep a shared grocery list. Kept deliberately simple: no extensive feature set, just a direct fix for a small, recurring annoyance, namely lists that kept getting lost across WhatsApp threads and scraps of paper.

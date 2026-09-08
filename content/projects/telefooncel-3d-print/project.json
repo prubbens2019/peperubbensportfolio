@@ -1,0 +1,17 @@
+{
+  "slug": "telefooncel-3d-print",
+  "title": "3D-geprinte Telefooncel",
+  "title_en": "3D-Printed Phone Booth",
+  "subtitle": "Ontwerpen voor een printer in plaats van een zaag",
+  "subtitle_en": "Designing for a printer instead of a saw",
+  "category": "fysieke-maakprojecten",
+  "visible": true,
+  "order": 3,
+  "role": "Ontwerp",
+  "year": "",
+  "tools": [
+    "3D-printen"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}

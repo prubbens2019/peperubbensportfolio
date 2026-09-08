@@ -1,16 +1,1 @@
-{
-  "test": {
-    "title": "Relevante projecten voor test",
-    "title_en": "Relevant projects for test",
-    "categories": [
-      "fysieke-maakprojecten",
-      "competities-challenges",
-      "ondernemerschap",
-      "horeca-klantcontact"
-    ],
-    "projects": [
-      "fietsenstalling-pallets",
-      "zwevende-ikea-kast"
-    ]
-  }
-}
+{}

@@ -50,8 +50,7 @@ export async function toggleCategoryVisibility(slug: string, visible: boolean) {
 export interface SubportfolioInput {
   title: string;
   titleEn: string;
-  categories: string[];
-  projects: string[];
+  assignments: Record<string, string[]>;
 }
 
 export async function saveSubportfolio(
@@ -67,8 +66,7 @@ export async function saveSubportfolio(
   all[slug] = {
     title: input.title,
     title_en: input.titleEn,
-    categories: input.categories,
-    projects: input.projects,
+    assignments: input.assignments,
   };
 
   writeJson(filePath, all);

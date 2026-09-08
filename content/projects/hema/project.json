@@ -1,0 +1,17 @@
+{
+  "slug": "hema",
+  "title": "HEMA",
+  "title_en": "HEMA",
+  "subtitle": "Klantgedrag in kaart brengen bij een winkel die iedereen al kent",
+  "subtitle_en": "Mapping customer behaviour at a store everyone thinks they already know",
+  "category": "productontwikkeling-onderzoek",
+  "visible": true,
+  "order": 2,
+  "role": "Online Customer Experience Intern",
+  "year": "2022-2023",
+  "tools": [
+    "Gebruiksonderzoek"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}

@@ -1,0 +1,1 @@
+BOS is een persoonlijke webapp om trainingen bij te houden, met een interface die bewust de vormgeving van NOS.nl aanhoudt. Het was vooral een oefening in snel iets functioneels bouwen zonder in te leveren op ontwerp. Het resultaat is een app die ik nog steeds zelf gebruik.

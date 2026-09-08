@@ -1,0 +1,1 @@
+BOS is a personal webapp for tracking workouts, built with an interface deliberately styled after NOS.nl. It was mainly an exercise in building something functional quickly without cutting corners on design. The result is an app I still use myself.

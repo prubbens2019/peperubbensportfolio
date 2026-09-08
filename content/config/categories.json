@@ -34,5 +34,17 @@
   {
     "slug": "persoonlijke-context",
     "visible": true
+  },
+  {
+    "slug": "relevante-werkervaring",
+    "visible": false
+  },
+  {
+    "slug": "opleiding",
+    "visible": false
+  },
+  {
+    "slug": "extra-activiteiten",
+    "visible": false
   }
 ]

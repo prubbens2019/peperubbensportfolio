@@ -1,0 +1,17 @@
+{
+  "slug": "boodschapp",
+  "title": "Boodschapp",
+  "title_en": "Boodschapp",
+  "subtitle": "Een gedeelde boodschappenlijst-app, gebouwd voor thuis",
+  "subtitle_en": "A shared grocery list app, built for home",
+  "category": "digitale-producten",
+  "visible": true,
+  "order": 2,
+  "role": "Zelfstandig project",
+  "year": "",
+  "tools": [
+    "Webdevelopment"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}

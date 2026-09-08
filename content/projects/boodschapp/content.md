@@ -1,0 +1,1 @@
+Boodschapp is een kleine webapp waarmee ik samen met mijn vriendin een gedeelde boodschappenlijst bijhoud. Bewust simpel gehouden: geen uitgebreide functionaliteit, maar een directe oplossing voor een concreet, terugkerend probleem, namelijk lijstjes die via WhatsApp of losse briefjes steeds weer kwijtraakten.

@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { saveSubportfolio, type SubportfolioInput } from "@/lib/pepbackend-actions";
 import { slugify } from "@/lib/slugify";
+import { emptyAssignments, SUBPORTFOLIO_SECTIONS } from "@/lib/subportfolio-sections";
 import type { CategoryMeta, Project, Subportfolio } from "@/lib/types";
 
 export function SubportfolioForm({
@@ -21,26 +22,21 @@ export function SubportfolioForm({
   const [name, setName] = useState(existing ? existing.title.replace(/^Relevante projecten voor /, "") : "");
   const [title, setTitle] = useState(existing?.title ?? "");
   const [slug, setSlug] = useState(existing?.slug ?? "");
-  const [selectedCategories, setSelectedCategories] = useState<Set<string>>(
-    new Set(existing?.categories ?? [])
-  );
-  const [selectedProjects, setSelectedProjects] = useState<Set<string>>(
-    new Set(existing?.projects ?? [])
+  const [assignments, setAssignments] = useState<Record<string, string[]>>(
+    existing?.assignments ?? emptyAssignments()
   );
   const [saving, setSaving] = useState(false);
+  const [dragSlug, setDragSlug] = useState<string | null>(null);
 
   const isNew = !existing;
 
-  const projectsByCategory = useMemo(() => {
-    const map = new Map<string, Project[]>();
-    for (const category of categories) {
-      map.set(
-        category.slug,
-        projects.filter((p) => p.category === category.slug)
-      );
-    }
-    return map;
-  }, [categories, projects]);
+  const sections = SUBPORTFOLIO_SECTIONS.map((sectionSlug) => ({
+    slug: sectionSlug,
+    title: categories.find((c) => c.slug === sectionSlug)?.title ?? sectionSlug,
+  }));
+
+  const categoryTitle = (categorySlug: string) =>
+    categories.find((c) => c.slug === categorySlug)?.title ?? categorySlug;
 
   function handleNameChange(value: string) {
     setName(value);
@@ -50,21 +46,25 @@ export function SubportfolioForm({
     }
   }
 
-  function toggleCategory(slug: string) {
-    setSelectedCategories((prev) => {
-      const next = new Set(prev);
-      if (next.has(slug)) next.delete(slug);
-      else next.add(slug);
-      return next;
+  function isAssigned(sectionSlug: string, projectSlug: string) {
+    return (assignments[sectionSlug] ?? []).includes(projectSlug);
+  }
+
+  function toggleAssignment(sectionSlug: string, projectSlug: string) {
+    setAssignments((prev) => {
+      const current = prev[sectionSlug] ?? [];
+      const next = current.includes(projectSlug)
+        ? current.filter((s) => s !== projectSlug)
+        : [...current, projectSlug];
+      return { ...prev, [sectionSlug]: next };
     });
   }
 
-  function toggleProject(slug: string) {
-    setSelectedProjects((prev) => {
-      const next = new Set(prev);
-      if (next.has(slug)) next.delete(slug);
-      else next.add(slug);
-      return next;
+  function addAssignment(sectionSlug: string, projectSlug: string) {
+    setAssignments((prev) => {
+      const current = prev[sectionSlug] ?? [];
+      if (current.includes(projectSlug)) return prev;
+      return { ...prev, [sectionSlug]: [...current, projectSlug] };
     });
   }
 
@@ -75,8 +75,7 @@ export function SubportfolioForm({
     const input: SubportfolioInput = {
       title,
       titleEn: existing?.title_en ?? (name ? `Relevant projects for ${name}` : ""),
-      categories: Array.from(selectedCategories),
-      projects: Array.from(selectedProjects),
+      assignments,
     };
 
     await saveSubportfolio(slug, input, existing?.slug);
@@ -88,7 +87,7 @@ export function SubportfolioForm({
     <div className="mt-4 space-y-5 rounded-2xl border border-wood/15 bg-cream-soft p-5">
       {isNew && (
         <div>
-          <label className="text-sm font-medium text-wood-dark">Naam (bijv. klantnaam)</label>
+          <label className="text-sm font-medium text-wood-dark">Naam (bijv. bedrijfsnaam)</label>
           <input
             type="text"
             value={name}
@@ -113,35 +112,89 @@ export function SubportfolioForm({
       </div>
 
       <div>
-        <p className="text-sm font-medium text-wood-dark">Categorieën &amp; projecten</p>
-        <div className="mt-2 space-y-3">
-          {categories.map((category) => (
-            <div key={category.slug}>
-              <label className="flex items-center gap-2 text-sm text-wood-dark">
-                <input
-                  type="checkbox"
-                  checked={selectedCategories.has(category.slug)}
-                  onChange={() => toggleCategory(category.slug)}
-                />
-                {category.title}
-              </label>
-              {selectedCategories.has(category.slug) && (
-                <div className="ml-6 mt-1 space-y-1">
-                  {(projectsByCategory.get(category.slug) ?? []).map((project) => (
-                    <label key={project.slug} className="flex items-center gap-2 text-sm text-wood/70">
-                      <input
-                        type="checkbox"
-                        checked={selectedProjects.has(project.slug)}
-                        onChange={() => toggleProject(project.slug)}
-                      />
-                      {project.title}
-                    </label>
-                  ))}
-                  {(projectsByCategory.get(category.slug) ?? []).length === 0 && (
-                    <p className="text-xs text-wood/40">Geen projecten in deze categorie.</p>
-                  )}
+        <p className="text-sm font-medium text-wood-dark">
+          Sleep projecten naar de gewenste sectie(s), of klik op een label om toe te voegen. Eén
+          project mag in meerdere secties staan.
+        </p>
+
+        <div className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-4">
+          <div className="rounded-xl border border-wood/15 bg-cream-soft/60 p-3">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-wood/50">
+              Alle projecten
+            </p>
+            <div className="max-h-96 space-y-2 overflow-y-auto">
+              {projects.map((project) => (
+                <div
+                  key={project.slug}
+                  draggable
+                  onDragStart={() => setDragSlug(project.slug)}
+                  onDragEnd={() => setDragSlug(null)}
+                  className="cursor-grab rounded-lg border border-wood/15 bg-cream-soft p-2 text-sm active:cursor-grabbing"
+                >
+                  <p className="font-medium text-wood-dark">{project.title}</p>
+                  <p className="text-xs text-wood/50">{categoryTitle(project.category)}</p>
+                  <div className="mt-1.5 flex flex-wrap gap-1">
+                    {sections.map((section) => (
+                      <button
+                        key={section.slug}
+                        type="button"
+                        onClick={() => toggleAssignment(section.slug, project.slug)}
+                        className={`rounded-full px-2 py-0.5 text-[11px] ${
+                          isAssigned(section.slug, project.slug)
+                            ? "bg-terracotta text-cream-soft"
+                            : "bg-sand/60 text-wood-dark hover:bg-sand"
+                        }`}
+                      >
+                        {section.title}
+                      </button>
+                    ))}
+                  </div>
                 </div>
+              ))}
+              {projects.length === 0 && (
+                <p className="text-xs text-wood/40">Nog geen projecten beschikbaar.</p>
               )}
+            </div>
+          </div>
+
+          {sections.map((section) => (
+            <div
+              key={section.slug}
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={() => {
+                if (dragSlug) addAssignment(section.slug, dragSlug);
+                setDragSlug(null);
+              }}
+              className="min-h-[8rem] rounded-xl border-2 border-dashed border-wood/20 bg-cream-soft/40 p-3"
+            >
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-wood/50">
+                {section.title}
+              </p>
+              <div className="space-y-2">
+                {(assignments[section.slug] ?? []).map((projectSlug) => {
+                  const project = projects.find((p) => p.slug === projectSlug);
+                  if (!project) return null;
+                  return (
+                    <div
+                      key={projectSlug}
+                      className="flex items-center justify-between gap-2 rounded-lg border border-wood/15 bg-cream-soft p-2 text-sm"
+                    >
+                      <span className="text-wood-dark">{project.title}</span>
+                      <button
+                        type="button"
+                        onClick={() => toggleAssignment(section.slug, projectSlug)}
+                        aria-label={`Verwijder ${project.title} uit ${section.title}`}
+                        className="text-wood/40 hover:text-terracotta-dark"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  );
+                })}
+                {(assignments[section.slug] ?? []).length === 0 && (
+                  <p className="text-xs text-wood/40">Sleep hier een project naartoe.</p>
+                )}
+              </div>
             </div>
           ))}
         </div>

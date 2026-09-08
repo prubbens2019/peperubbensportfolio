@@ -1,0 +1,18 @@
+{
+  "slug": "bluedot-foundation",
+  "title": "BlueDot Foundation",
+  "title_en": "BlueDot Foundation",
+  "subtitle": "Studentenontwerpen naar de markt brengen, twee keer",
+  "subtitle_en": "Bringing student designs to market, twice",
+  "category": "productontwikkeling-onderzoek",
+  "visible": true,
+  "order": 5,
+  "role": "Commissaris Verkoop",
+  "year": "2019-2021",
+  "tools": [
+    "Sales",
+    "Productontwikkeling"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}

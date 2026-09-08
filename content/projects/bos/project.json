@@ -1,0 +1,17 @@
+{
+  "slug": "bos",
+  "title": "BOS",
+  "title_en": "BOS",
+  "subtitle": "Een fitness-trackingapp, gestyled als NOS.nl",
+  "subtitle_en": "A fitness-tracking app, styled after NOS.nl",
+  "category": "digitale-producten",
+  "visible": true,
+  "order": 1,
+  "role": "Zelfstandig project",
+  "year": "",
+  "tools": [
+    "Webdevelopment"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}

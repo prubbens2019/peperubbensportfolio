@@ -1,0 +1,5 @@
+For LUO Automation I worked as a self-employed storytelling expert. The company automates the visual inspection of medication, which in practice means cameras and algorithms checking vials and injectable bottles for defects. My work started with conversations with the engineers themselves, first properly understanding what they had built before I could build a story around it.
+
+The hardest part was not selling the idea, but explaining the technology itself to an audience without a technical background. Visual inspection sounds simple on paper, but as soon as you get into image recognition and validation requirements within the pharmaceutical industry, it gets complex fast. My job was to bring that complexity down to something that still held up without losing its essence.
+
+I mostly wrote for potential clients within the pharmaceutical industry, companies that needed convincing that automation here is not just faster but also more reliable than manual inspection. That called for a different tone than an investor pitch or internal documentation, less about the technology itself and more about what it delivers for someone dealing with quality control every day.

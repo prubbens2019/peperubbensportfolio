@@ -52,6 +52,6 @@ export interface Subportfolio {
   slug: string;
   title: string;
   title_en: string;
-  categories: string[];
-  projects: string[];
+  /** Project slugs per fixed subportfolio section (see lib/subportfolio-sections.ts). */
+  assignments: Record<string, string[]>;
 }

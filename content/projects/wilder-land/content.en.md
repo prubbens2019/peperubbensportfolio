@@ -1,0 +1,5 @@
+Wilder Land makes teas and food products from wild herbs and weeds, harvested together with farmers to help restore Dutch biodiversity. My work there fell into two areas: the brand's online presence, and contributing conceptually to where the product and its story needed to go.
+
+On the website my attention went mostly to structure and user experience. How do you make sure someone landing on the site for the first time understands within a few clicks why a product made from weeds is worth trying? That is less obvious than it sounds. Weeds do not exactly have a strong reputation, and a website has to remove that distrust before anyone even considers buying something.
+
+What I enjoyed most about working at Wilder Land was the team itself: small and hands-on, with everyone close to the product. No big layers between idea and execution, just a handful of people figuring things out together and then actually building it themselves. That directness, combined with a brand that had to make a genuinely unusual story convincing, made it one of the projects I learned the most from.

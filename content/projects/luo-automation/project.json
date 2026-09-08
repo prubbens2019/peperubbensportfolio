@@ -1,0 +1,18 @@
+{
+  "slug": "luo-automation",
+  "title": "LUO Automation",
+  "title_en": "LUO Automation",
+  "subtitle": "Complexe automatisering vertalen naar een verhaal dat blijft hangen",
+  "subtitle_en": "Translating complex automation into a story that sticks",
+  "category": "content-storytelling",
+  "visible": true,
+  "order": 1,
+  "role": "Zelfstandig Storytelling Expert",
+  "year": "2024-2025",
+  "tools": [
+    "Storytelling",
+    "Presentaties"
+  ],
+  "externalLink": "",
+  "translationHash": ""
+}
