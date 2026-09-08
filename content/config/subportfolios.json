@@ -1,1 +1,23 @@
-{}
+{
+  "rvo": {
+    "title": "Relevante projecten voor RVO",
+    "title_en": "Relevant projects for RVO",
+    "assignments": {
+      "relevante-werkervaring": [
+        "kwiek-mobility",
+        "luo-automation",
+        "wilder-land",
+        "hema",
+        "waardevolle-gezelligheid"
+      ],
+      "opleiding": [
+        "masterthesis"
+      ],
+      "extra-activiteiten": [
+        "bluedot-foundation",
+        "luchtloper",
+        "camperombouw"
+      ]
+    }
+  }
+}
