@@ -6,6 +6,10 @@ import { deleteSubportfolio } from "@/lib/pepbackend-actions";
 import type { CategoryMeta, Project, Subportfolio } from "@/lib/types";
 import { SubportfolioForm } from "./SubportfolioForm";
 
+function subportfolioUrl(slug: string) {
+  return `https://peperubbens.nl/${slug}`;
+}
+
 export function SubportfoliosPanel({
   categories,
   projects,
@@ -17,6 +21,8 @@ export function SubportfoliosPanel({
 }) {
   const router = useRouter();
   const [editingSlug, setEditingSlug] = useState<string | null | "new">(null);
+  const [error, setError] = useState<string | null>(null);
+  const [copiedSlug, setCopiedSlug] = useState<string | null>(null);
 
   const list: Subportfolio[] = Object.entries(subportfolios).map(([slug, data]) => ({
     slug,
@@ -30,8 +36,23 @@ export function SubportfoliosPanel({
 
   async function handleDelete(slug: string) {
     if (!confirm(`Sub-portfolio "${slug}" verwijderen?`)) return;
-    await deleteSubportfolio(slug);
-    router.refresh();
+    setError(null);
+    try {
+      await deleteSubportfolio(slug);
+      router.refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Verwijderen is mislukt.");
+    }
+  }
+
+  async function handleCopyLink(slug: string) {
+    try {
+      await navigator.clipboard.writeText(subportfolioUrl(slug));
+      setCopiedSlug(slug);
+      setTimeout(() => setCopiedSlug((s) => (s === slug ? null : s)), 2000);
+    } catch {
+      // clipboard access denied — the link is still visible and clickable
+    }
   }
 
   return (
@@ -44,9 +65,23 @@ export function SubportfoliosPanel({
           <div key={sub.slug} className="flex items-center justify-between gap-4 p-4">
             <div>
               <p className="font-medium text-wood-dark">{sub.title}</p>
-              <p className="text-xs text-wood/50">peperubbens.nl/{sub.slug}</p>
+              <a
+                href={subportfolioUrl(sub.slug)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-terracotta-dark underline hover:text-terracotta"
+              >
+                {subportfolioUrl(sub.slug)}
+              </a>
             </div>
             <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => handleCopyLink(sub.slug)}
+                className="rounded-full border border-wood/25 px-3 py-1.5 text-xs text-wood-dark hover:bg-sand/60"
+              >
+                {copiedSlug === sub.slug ? "Gekopieerd!" : "Kopieer link"}
+              </button>
               <button
                 type="button"
                 onClick={() => setEditingSlug(sub.slug)}
@@ -65,6 +100,7 @@ export function SubportfoliosPanel({
           </div>
         ))}
       </div>
+      {error && <p className="text-sm text-terracotta-dark">{error}</p>}
 
       {editingSlug === null && (
         <button

@@ -26,6 +26,7 @@ export function SubportfolioForm({
     existing?.assignments ?? emptyAssignments()
   );
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [dragSlug, setDragSlug] = useState<string | null>(null);
 
   const isNew = !existing;
@@ -71,6 +72,7 @@ export function SubportfolioForm({
   async function handleSubmit() {
     if (!slug || !title) return;
     setSaving(true);
+    setError(null);
 
     const input: SubportfolioInput = {
       title,
@@ -78,9 +80,14 @@ export function SubportfolioForm({
       assignments,
     };
 
-    await saveSubportfolio(slug, input, existing?.slug);
-    setSaving(false);
-    onDone();
+    try {
+      await saveSubportfolio(slug, input, existing?.slug);
+      onDone();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Opslaan is mislukt. Probeer het opnieuw.");
+    } finally {
+      setSaving(false);
+    }
   }
 
   return (
@@ -200,22 +207,25 @@ export function SubportfolioForm({
         </div>
       </div>
 
-      <div className="flex gap-2">
-        <button
-          type="button"
-          onClick={handleSubmit}
-          disabled={saving || !slug || !title}
-          className="rounded-full bg-terracotta px-4 py-2 text-sm font-medium text-cream-soft hover:bg-terracotta-dark disabled:opacity-50"
-        >
-          {saving ? "Opslaan..." : "Opslaan"}
-        </button>
-        <button
-          type="button"
-          onClick={onCancel}
-          className="rounded-full border border-wood/25 px-4 py-2 text-sm text-wood-dark hover:bg-sand/60"
-        >
-          Annuleren
-        </button>
+      <div>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={saving || !slug || !title}
+            className="rounded-full bg-terracotta px-4 py-2 text-sm font-medium text-cream-soft hover:bg-terracotta-dark disabled:opacity-50"
+          >
+            {saving ? "Opslaan..." : "Opslaan"}
+          </button>
+          <button
+            type="button"
+            onClick={onCancel}
+            className="rounded-full border border-wood/25 px-4 py-2 text-sm text-wood-dark hover:bg-sand/60"
+          >
+            Annuleren
+          </button>
+        </div>
+        {error && <p className="mt-2 text-sm text-terracotta-dark">{error}</p>}
       </div>
     </div>
   );
