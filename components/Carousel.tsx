@@ -35,7 +35,20 @@ export function Carousel({ images, alt }: { images: string[]; alt: string }) {
           touchStartX.current = null;
         }}
       >
-        <Image src={images[index]} alt={`${alt} — ${index + 1}/${images.length}`} fill className="object-cover" />
+        {images.map((src, i) => (
+          <Image
+            key={src}
+            src={src}
+            alt={`${alt} — ${i + 1}/${images.length}`}
+            fill
+            className={`object-cover transition-opacity duration-300 ${
+              i === index ? "opacity-100" : "pointer-events-none opacity-0"
+            }`}
+            sizes="(min-width: 768px) 700px, 100vw"
+            priority={i === 0}
+            loading={i === 0 ? undefined : "eager"}
+          />
+        ))}
 
         <button
           type="button"
