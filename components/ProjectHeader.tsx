@@ -11,12 +11,10 @@ export function ProjectHeader({ project }: { project: Project }) {
 
   return (
     <div className="mt-8">
-      <h1 className="text-3xl font-semibold sm:text-4xl">{title}</h1>
+      <h1 className="text-3xl sm:text-4xl">{title}</h1>
       {subtitle && <p className="mt-2 text-lg text-wood-dark/70">{subtitle}</p>}
       {metaItems.length > 0 && (
-        <p className="mt-3 text-sm uppercase tracking-wide text-wood/60">
-          {metaItems.join(" · ")}
-        </p>
+        <p className="label-mono mt-3 text-wood/60">{metaItems.join(" · ")}</p>
       )}
     </div>
   );

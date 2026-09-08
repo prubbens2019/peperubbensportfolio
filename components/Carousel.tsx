@@ -11,7 +11,7 @@ export function Carousel({ images, alt }: { images: string[]; alt: string }) {
 
   if (images.length === 1) {
     return (
-      <div className="relative mt-4 aspect-[16/10] w-full overflow-hidden rounded-2xl bg-sand">
+      <div className="relative mt-4 aspect-[16/10] w-full overflow-hidden border border-wood/15 bg-sand">
         <Image src={images[0]} alt={alt} fill className="object-cover" />
       </div>
     );
@@ -54,7 +54,7 @@ export function Carousel({ images, alt }: { images: string[]; alt: string }) {
           type="button"
           onClick={() => go(-1)}
           aria-label="Vorige foto"
-          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-cream-soft/80 p-2 text-wood-dark shadow hover:bg-cream-soft"
+          className="absolute left-3 top-1/2 -translate-y-1/2 border border-wood/15 bg-cream-soft/90 p-2 text-wood-dark hover:border-terracotta hover:text-terracotta"
         >
           ←
         </button>
@@ -62,7 +62,7 @@ export function Carousel({ images, alt }: { images: string[]; alt: string }) {
           type="button"
           onClick={() => go(1)}
           aria-label="Volgende foto"
-          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-cream-soft/80 p-2 text-wood-dark shadow hover:bg-cream-soft"
+          className="absolute right-3 top-1/2 -translate-y-1/2 border border-wood/15 bg-cream-soft/90 p-2 text-wood-dark hover:border-terracotta hover:text-terracotta"
         >
           →
         </button>
@@ -75,8 +75,8 @@ export function Carousel({ images, alt }: { images: string[]; alt: string }) {
             type="button"
             onClick={() => setIndex(i)}
             aria-label={`Ga naar foto ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all ${
-              i === index ? "w-5 bg-terracotta" : "w-1.5 bg-wood/25"
+            className={`h-1 transition-all ${
+              i === index ? "w-6 bg-terracotta" : "w-1 bg-wood/25"
             }`}
           />
         ))}

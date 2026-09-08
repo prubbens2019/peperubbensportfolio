@@ -11,10 +11,13 @@ export function CategoryHeading({ category }: { category: CategoryMeta }) {
 
   return (
     <div>
-      <Link href="/" className="text-sm text-wood/60 hover:text-terracotta">
+      <Link href="/" className="label-mono text-wood/60 hover:text-terracotta">
         {back}
       </Link>
-      <h1 className="mt-3 text-3xl font-semibold sm:text-4xl">{title}</h1>
+      <p className="label-mono mt-4 text-terracotta">
+        {String(category.order).padStart(2, "0")} / Categorie
+      </p>
+      <h1 className="mt-2 text-3xl sm:text-4xl">{title}</h1>
       {subtitle && <p className="mt-2 text-lg text-wood-dark/70">{subtitle}</p>}
     </div>
   );

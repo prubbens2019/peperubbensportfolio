@@ -6,8 +6,8 @@ export function LanguageToggle() {
   const { locale, setLocale } = useLocale();
 
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex overflow-hidden rounded-full border border-wood/25 text-xs font-medium">
+    <div className="flex items-center gap-3">
+      <div className="label-mono flex overflow-hidden border border-wood/25">
         <button
           type="button"
           onClick={() => setLocale("nl")}
@@ -21,7 +21,7 @@ export function LanguageToggle() {
         <button
           type="button"
           onClick={() => setLocale("en")}
-          className={`px-3 py-1.5 transition-colors ${
+          className={`border-l border-wood/25 px-3 py-1.5 transition-colors ${
             locale === "en" ? "bg-wood-dark text-cream-soft" : "text-wood-dark hover:bg-sand/60"
           }`}
           aria-pressed={locale === "en"}
@@ -32,8 +32,9 @@ export function LanguageToggle() {
       {locale === "en" && (
         <span
           title="Automatisch vertaald"
-          className="rounded-full bg-terracotta/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-terracotta-dark"
+          className="label-mono flex items-center gap-1 text-terracotta"
         >
+          <span className="h-1.5 w-1.5 bg-terracotta" />
           AI
         </span>
       )}

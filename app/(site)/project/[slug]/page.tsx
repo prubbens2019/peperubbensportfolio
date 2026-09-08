@@ -21,7 +21,7 @@ export default async function ProjectPage({ params }: PageProps<"/project/[slug]
       <BackLink href={`/categorie/${project.category}`} />
 
       {project.banner && (
-        <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden rounded-2xl bg-sand">
+        <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden border border-wood/15 bg-sand">
           <Image src={project.banner} alt={project.title} fill priority className="object-cover" />
         </div>
       )}

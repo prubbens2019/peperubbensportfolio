@@ -71,8 +71,9 @@ export function getSiteConfig(): SiteConfig {
     profile: "",
     profile_en: "",
     profilePhoto: "",
+    birthdate: "",
     translationHash: "",
-    social: { linkedin: "", email: "", joseLogistics: "" },
+    social: { linkedin: "", email: "", phone: "", joseLogistics: "" },
   });
 
   if (site.profilePhoto) {

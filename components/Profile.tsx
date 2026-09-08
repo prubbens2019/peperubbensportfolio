@@ -1,9 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { useLocalized } from "@/lib/locale-context";
+import { useLocale, useLocalized } from "@/lib/locale-context";
 import type { SiteConfig } from "@/lib/types";
 import { Button } from "./Button";
+
+function formatBirthdate(iso: string, locale: "nl" | "en"): string {
+  const date = new Date(`${iso}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return iso;
+  return date.toLocaleDateString(locale === "nl" ? "nl-NL" : "en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+}
 
 export function Profile({
   site,
@@ -14,34 +24,56 @@ export function Profile({
   titleNl?: string;
   titleEn?: string;
 }) {
+  const { locale } = useLocale();
   const profile = useLocalized(site.profile, site.profile_en);
   const paragraphs = profile.split(/\n{2,}/).filter(Boolean);
   const title = useLocalized(titleNl ?? site.name, titleEn ?? site.name);
+  const bornLabel = useLocalized("Geboren", "Born");
 
   const hasPhoto = Boolean(site.profilePhoto);
-  const { linkedin, email, joseLogistics } = site.social;
+  const { linkedin, email, phone, joseLogistics } = site.social;
 
   return (
-    <div className="texture-grain flex flex-col items-center gap-6 rounded-3xl bg-cream-soft/70 px-6 py-12 text-center sm:px-12">
+    <div className="border-b border-wood/15 pb-12">
       {hasPhoto && (
-        <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-sand shadow-sm sm:h-40 sm:w-40">
+        <div className="relative mb-6 h-28 w-28 overflow-hidden border border-wood/15 bg-sand sm:h-32 sm:w-32">
           <Image src={site.profilePhoto} alt={site.name} fill className="object-cover" />
         </div>
       )}
 
-      <div>
-        <h1 className="text-3xl font-semibold sm:text-4xl">{title}</h1>
-        {paragraphs.length > 0 && (
-          <div className="mx-auto mt-4 max-w-xl space-y-3 text-balance text-wood-dark/80">
-            {paragraphs.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-        )}
+      <p className="label-mono flex items-center gap-2 text-terracotta">
+        <span className="h-1.5 w-1.5 bg-terracotta" />
+        01 / Profiel
+      </p>
+
+      <div className="mt-3 flex gap-4 sm:gap-6">
+        <span className="mt-1 hidden w-2 shrink-0 bg-terracotta sm:block" />
+        <div>
+          <h1 className="text-4xl sm:text-5xl">{title}</h1>
+          {paragraphs.length > 0 && (
+            <div className="mt-4 max-w-xl space-y-3 text-wood-dark/70">
+              {paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
-      {(linkedin || email || joseLogistics) && (
-        <div className="flex flex-wrap items-center justify-center gap-3">
+      {(email || phone || site.birthdate) && (
+        <div className="label-mono mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-wood/60">
+          {email && <span>{email}</span>}
+          {phone && <span>{phone}</span>}
+          {site.birthdate && (
+            <span>
+              {bornLabel} {formatBirthdate(site.birthdate, locale)}
+            </span>
+          )}
+        </div>
+      )}
+
+      {(linkedin || email || phone || joseLogistics) && (
+        <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
           {linkedin && (
             <Button href={linkedin} variant="ghost">
               LinkedIn
@@ -50,6 +82,11 @@ export function Profile({
           {email && (
             <Button href={`mailto:${email}`} variant="ghost">
               E-mail
+            </Button>
+          )}
+          {phone && (
+            <Button href={`tel:${phone.replace(/[^+\d]/g, "")}`} variant="ghost">
+              Bel
             </Button>
           )}
           {joseLogistics && (

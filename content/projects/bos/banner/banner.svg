@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 625" width="1000" height="625">
-  <rect width="1000" height="625" fill="#3d5a45" />
-  <text text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="600" fill="#f7efe1"><tspan x="50%" y="286.5">BOS</tspan></text>
+  <rect width="1000" height="625" fill="#141414" />
+  <rect x="0" y="0" width="10" height="625" fill="#f1efe9" opacity="0.15" />
+  <text font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="800" fill="#f1efe9"><tspan x="48" y="312.5">BOS</tspan></text>
 </svg>

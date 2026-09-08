@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" width="900" height="675">
-  <rect width="900" height="675" fill="#4a2e1c" />
-  <text text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="49.5" font-weight="600" fill="#f7efe1"><tspan x="50%" y="309.6">Persoonlijke</tspan><tspan x="50%" y="365.40000000000003">context</tspan></text>
+  <rect width="900" height="675" fill="#2b2beb" />
+  <rect x="0" y="0" width="10" height="675" fill="#f1efe9" opacity="0.15" />
+  <text font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="800" fill="#f1efe9"><tspan x="42" y="311.4">Persoonlijke</tspan><tspan x="42" y="363.59999999999997">context</tspan></text>
 </svg>

@@ -5,10 +5,12 @@ export interface SiteConfig {
   profile: string;
   profile_en: string;
   profilePhoto: string;
+  birthdate: string;
   translationHash: string;
   social: {
     linkedin: string;
     email: string;
+    phone: string;
     joseLogistics: string;
   };
 }

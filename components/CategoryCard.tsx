@@ -12,7 +12,7 @@ export function CategoryCard({ category }: { category: CategoryMeta }) {
   return (
     <Link
       href={`/categorie/${category.slug}`}
-      className="group block overflow-hidden rounded-2xl border border-wood/15 bg-cream-soft transition-shadow duration-200 hover:shadow-lg hover:shadow-wood/10"
+      className="group block overflow-hidden border border-wood/15 bg-cream-soft transition-colors duration-150 hover:border-terracotta"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-sand">
         {category.cover ? (
@@ -29,9 +29,9 @@ export function CategoryCard({ category }: { category: CategoryMeta }) {
           </div>
         )}
       </div>
-      <div className="p-5">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        {subtitle && <p className="mt-1 text-sm text-wood/70">{subtitle}</p>}
+      <div className="border-t border-wood/15 p-5">
+        <h3 className="text-lg font-bold">{title}</h3>
+        {subtitle && <p className="mt-1 text-sm text-wood/60">{subtitle}</p>}
       </div>
     </Link>
   );

@@ -3,9 +3,11 @@
   "profile": "",
   "profile_en": "",
   "profilePhoto": "/profielfoto.jpg",
+  "birthdate": "2000-02-11",
   "social": {
     "linkedin": "",
-    "email": "",
+    "email": "pepe@rubbens.nl",
+    "phone": "+31621981415",
     "joseLogistics": ""
   },
   "translationHash": ""
