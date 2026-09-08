@@ -9,7 +9,7 @@
   },
   {
     "slug": "ondernemerschap",
-    "visible": true
+    "visible": false
   },
   {
     "slug": "digitale-producten",
@@ -17,7 +17,7 @@
   },
   {
     "slug": "competities-challenges",
-    "visible": true
+    "visible": false
   },
   {
     "slug": "content-storytelling",
@@ -33,7 +33,7 @@
   },
   {
     "slug": "persoonlijke-context",
-    "visible": true
+    "visible": false
   },
   {
     "slug": "relevante-werkervaring",
