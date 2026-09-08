@@ -48,29 +48,33 @@ export function Profile({
 
   return (
     <div className="border-b border-wood/15 pb-12">
-      {hasPhoto && (
-        <div className="relative mb-6 h-28 w-28 overflow-hidden border border-wood/15 bg-sand sm:h-32 sm:w-32">
-          <Image src={site.profilePhoto} alt={site.name} fill className="object-cover" />
-        </div>
-      )}
+      <div className="flex flex-col-reverse items-start justify-between gap-8 sm:flex-row">
+        <div className="min-w-0 flex-1">
+          <p className="label-mono flex items-center gap-2 text-terracotta">
+            <span className="h-1.5 w-1.5 bg-terracotta" />
+            01 / Profiel
+          </p>
 
-      <p className="label-mono flex items-center gap-2 text-terracotta">
-        <span className="h-1.5 w-1.5 bg-terracotta" />
-        01 / Profiel
-      </p>
-
-      <div className="mt-3 flex gap-4 sm:gap-6">
-        <span className="mt-1 hidden w-2 shrink-0 bg-terracotta sm:block" />
-        <div>
-          <h1 className="text-4xl sm:text-5xl">{title}</h1>
-          {paragraphs.length > 0 && (
-            <div className="mt-4 max-w-xl space-y-3 text-wood-dark/70">
-              {paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
+          <div className="mt-3 flex gap-4 sm:gap-6">
+            <span className="mt-1 hidden w-2 shrink-0 bg-terracotta sm:block" />
+            <div>
+              <h1 className="text-4xl sm:text-5xl">{title}</h1>
+              {paragraphs.length > 0 && (
+                <div className="mt-4 max-w-xl space-y-3 text-wood-dark/70">
+                  {paragraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
+
+        {hasPhoto && (
+          <div className="relative h-28 w-28 shrink-0 overflow-hidden border border-wood/15 bg-sand sm:h-36 sm:w-36">
+            <Image src={site.profilePhoto} alt={site.name} fill className="object-cover" />
+          </div>
+        )}
       </div>
 
       {(email || phone || site.birthdate) && (
