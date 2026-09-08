@@ -5,13 +5,16 @@ import Link from "next/link";
 import { useLocalized } from "@/lib/locale-context";
 import type { Project } from "@/lib/types";
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({ project, from }: { project: Project; from?: string }) {
   const title = useLocalized(project.title, project.title_en);
   const subtitle = useLocalized(project.subtitle, project.subtitle_en);
+  const href = from
+    ? `/project/${project.slug}?from=${encodeURIComponent(from)}`
+    : `/project/${project.slug}`;
 
   return (
     <Link
-      href={`/project/${project.slug}`}
+      href={href}
       className="group block overflow-hidden border border-wood/15 bg-cream-soft transition-colors duration-150 hover:border-terracotta"
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-sand">

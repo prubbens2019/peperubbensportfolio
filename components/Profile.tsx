@@ -15,6 +15,18 @@ function formatBirthdate(iso: string, locale: "nl" | "en"): string {
   });
 }
 
+function calculateAge(iso: string): number | null {
+  const birth = new Date(`${iso}T00:00:00`);
+  if (Number.isNaN(birth.getTime())) return null;
+  const today = new Date();
+  let age = today.getFullYear() - birth.getFullYear();
+  const hasHadBirthdayThisYear =
+    today.getMonth() > birth.getMonth() ||
+    (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+  if (!hasHadBirthdayThisYear) age -= 1;
+  return age;
+}
+
 export function Profile({
   site,
   titleNl,
@@ -28,7 +40,8 @@ export function Profile({
   const profile = useLocalized(site.profile, site.profile_en);
   const paragraphs = profile.split(/\n{2,}/).filter(Boolean);
   const title = useLocalized(titleNl ?? site.name, titleEn ?? site.name);
-  const bornLabel = useLocalized("Geboren", "Born");
+  const yearsLabel = useLocalized("jaar", "yrs");
+  const age = site.birthdate ? calculateAge(site.birthdate) : null;
 
   const hasPhoto = Boolean(site.profilePhoto);
   const { linkedin, email, phone, joseLogistics } = site.social;
@@ -66,7 +79,8 @@ export function Profile({
           {phone && <span>{phone}</span>}
           {site.birthdate && (
             <span>
-              {bornLabel} {formatBirthdate(site.birthdate, locale)}
+              {formatBirthdate(site.birthdate, locale)}
+              {age !== null && ` · ${age} ${yearsLabel}`}
             </span>
           )}
         </div>

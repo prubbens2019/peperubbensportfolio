@@ -36,7 +36,12 @@ export default async function SubportfolioPage({ params }: PageProps<"/[subportf
       <Profile site={site} titleNl={subportfolio.title} titleEn={subportfolio.title_en} />
 
       {sections.map(({ category, projects }) => (
-        <CategorySection key={category.slug} category={category} projects={projects} />
+        <CategorySection
+          key={category.slug}
+          category={category}
+          projects={projects}
+          from={`/${slug}`}
+        />
       ))}
     </Container>
   );
