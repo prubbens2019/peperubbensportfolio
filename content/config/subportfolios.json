@@ -19,5 +19,28 @@
         "camperombouw"
       ]
     }
+  },
+  "picnic": {
+    "title": "Relevante projecten voor picnic",
+    "title_en": "Relevant projects for picnic",
+    "assignments": {
+      "relevante-werkervaring": [
+        "luo-automation",
+        "wilder-land",
+        "hema",
+        "waardevolle-gezelligheid",
+        "kwiek-mobility",
+        "bluedot-foundation"
+      ],
+      "opleiding": [
+        "masterthesis"
+      ],
+      "extra-activiteiten": [
+        "boodschapp",
+        "bos",
+        "camperombouw",
+        "plantalive"
+      ]
+    }
   }
 }
