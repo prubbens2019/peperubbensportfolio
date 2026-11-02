@@ -11,7 +11,7 @@ export function CategoryCard({ category }: { category: CategoryMeta }) {
 
   return (
     <Link
-      href={`/categorie/${category.slug}`}
+      href={`/categorie/${category.slug}?back=1`}
       className="group block overflow-hidden border border-wood/15 bg-cream-soft transition-colors duration-150 hover:border-terracotta"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-sand">
