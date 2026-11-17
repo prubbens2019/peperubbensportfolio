@@ -21,16 +21,15 @@
     }
   },
   "picnic": {
-    "title": "Relevante projecten voor picnic",
-    "title_en": "Relevant projects for picnic",
+    "title": "Relevante projecten voor Picnic",
+    "title_en": "Relevant projects for Picnic",
     "assignments": {
       "relevante-werkervaring": [
+        "hema",
         "luo-automation",
         "wilder-land",
-        "hema",
-        "waardevolle-gezelligheid",
         "kwiek-mobility",
-        "bluedot-foundation"
+        "waardevolle-gezelligheid"
       ],
       "opleiding": [
         "masterthesis"
@@ -38,8 +37,10 @@
       "extra-activiteiten": [
         "boodschapp",
         "bos",
+        "plantalive",
+        "solli",
         "camperombouw",
-        "plantalive"
+        "bluedot-foundation"
       ]
     }
   },
