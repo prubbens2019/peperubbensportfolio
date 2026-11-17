@@ -2,16 +2,18 @@
   "slug": "plantalive",
   "title": "Plantalive",
   "title_en": "Plantalive",
-  "subtitle": "",
-  "subtitle_en": "",
+  "subtitle": "Plantenverzorging met een AI-tuinier",
+  "subtitle_en": "Plant care with an AI gardener",
   "category": "digitale-producten",
   "visible": true,
   "order": 3,
   "role": "Zelfstandig project",
   "year": "",
   "tools": [
-    "Webdevelopment"
+    "Node.js",
+    "Raspberry Pi",
+    "Claude API"
   ],
   "externalLink": "",
-  "translationHash": ""
+  "translationHash": "1034e15e70abcf140ae027917113580d470ee4664e94358cc69643444e6a91f3"
 }

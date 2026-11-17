@@ -1,0 +1,19 @@
+{
+  "slug": "solli",
+  "title": "Solli",
+  "title_en": "Solli",
+  "subtitle": "Vacatures zoeken op wat je leuk vindt, niet op functietitels",
+  "subtitle_en": "Searching for jobs by what you enjoy, not by job title",
+  "category": "digitale-producten",
+  "visible": true,
+  "order": 4,
+  "role": "Zelfstandig project",
+  "year": "",
+  "tools": [
+    "Next.js",
+    "TypeScript",
+    "PWA"
+  ],
+  "externalLink": "",
+  "translationHash": "4f25f219c5050919b56aa445f89a065e08b3a6ac0bdd10cb4fb457312ebfb055"
+}

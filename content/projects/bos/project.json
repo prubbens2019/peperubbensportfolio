@@ -1,17 +1,18 @@
 {
   "slug": "bos",
-  "title": "BOS",
-  "title_en": "BOS",
-  "subtitle": "Een fitness-trackingapp, gestyled als NOS.nl",
-  "subtitle_en": "A fitness-tracking app, styled after NOS.nl",
+  "title": "BOSfit",
+  "title_en": "BOSfit",
+  "subtitle": "Weekplanner voor krachttraining",
+  "subtitle_en": "Weekly planner for strength training",
   "category": "digitale-producten",
   "visible": true,
   "order": 1,
   "role": "Zelfstandig project",
   "year": "",
   "tools": [
-    "Webdevelopment"
+    "React",
+    "Firebase"
   ],
   "externalLink": "",
-  "translationHash": ""
+  "translationHash": "1561e7c9391bf64566cb94769f36b4e327d1332333ac04fca4058c39fcbfddd4"
 }
