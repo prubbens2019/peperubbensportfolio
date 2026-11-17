@@ -42,5 +42,29 @@
         "plantalive"
       ]
     }
+  },
+  "humanoids": {
+    "title": "Relevante projecten voor Humanoids",
+    "title_en": "Relevant projects for Humanoids",
+    "assignments": {
+      "relevante-werkervaring": [
+        "luo-automation",
+        "hema",
+        "wilder-land",
+        "kwiek-mobility",
+        "waardevolle-gezelligheid"
+      ],
+      "opleiding": [
+        "masterthesis"
+      ],
+      "extra-activiteiten": [
+        "boodschapp",
+        "bos",
+        "plantalive",
+        "solli",
+        "camperombouw",
+        "bluedot-foundation"
+      ]
+    }
   }
 }
