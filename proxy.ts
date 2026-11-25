@@ -75,5 +75,5 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   // Image files stay open: next/image fetches them internally without the cookie.
-  matcher: ["/((?!_next/static|_next/image|_vercel/|content/|profielfoto.jpg|favicon.ico|icon.svg).*)"],
+  matcher: ["/((?!_next/static|_next/image|_vercel/|content/|profielfoto.jpg|logo.png|favicon.ico|icon.svg).*)"],
 };

@@ -2,15 +2,15 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  /* Sharp, technical palette — off-white paper, near-black ink, electric blue accent. */
+  /* Sharp, technical palette — off-white paper, near-black ink, logo-orange accent. */
   --raw-cream: #f1efe9;
   --raw-cream-soft: #fafaf7;
   --raw-sand: #e7e3d9;
   --raw-sand-dark: #d3cdbe;
   --raw-wood: #67655d;
   --raw-wood-dark: #141414;
-  --raw-terracotta: #2b2beb;
-  --raw-terracotta-dark: #1e1ec9;
+  --raw-terracotta: #fc3802;
+  --raw-terracotta-dark: #d42e00;
   --raw-ink: #141414;
 }
 

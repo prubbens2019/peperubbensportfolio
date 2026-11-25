@@ -1,18 +1,16 @@
-import { Archivo, Inter, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans, DM_Mono } from "next/font/google";
 
-export const archivo = Archivo({
+export const bricolage = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700", "800", "900"],
 });
 
-export const inter = Inter({
+export const instrumentSans = Instrument_Sans({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
-export const jetbrainsMono = JetBrains_Mono({
+export const dmMono = DM_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
