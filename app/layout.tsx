@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { archivo, inter, jetbrainsMono } from "@/lib/fonts";
 import { LocaleProvider } from "@/lib/locale-context";
 import "./globals.css";
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <LocaleProvider>{children}</LocaleProvider>
+        <Analytics />
       </body>
     </html>
   );
